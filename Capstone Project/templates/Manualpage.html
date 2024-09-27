@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Input Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image: url('https://cdn-ilbiidp.nitrocdn.com/elBvgrCnKGiwHqUtmiJhrImPNvHOrBpD/assets/images/optimized/rev-a209e5c/stf.com.tr/wp-content/uploads/dripping-1.jpg'); /* Replace with your image URL */
+        }
+        .home-link img {
+            width: 30px; 
+            vertical-align: middle; 
+        }
+        header, footer {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        form {
+            
+            padding: 40px;
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #fff;
+        }
+        input {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        /*result {
+            margin-top: 100px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }*/
+        #result-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Make sure it sits on top */
+        }
+        .result-box {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;  /*<div id="result"></div> if it doesnt work return to the body*/
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="home-link">
+                <img src="https://www.freeiconspng.com/uploads/home-icon-png-31.png" alt="Home"> 
+            </a>
+        </nav>
+        <h1>Manual Data Input</h1>
+    </header>
+    
+    <main>
+        <form id="infoForm"  action="/predict" method="POST" onsubmit="return validateForm()">
+            <label for="temperature">Temperature:</label>
+            <input type="number" id="temperature" name = "temperature" step="any"  required placeholder = "0.0"><br>
+            <label for="humidity">Humidity:</label>
+            <input type="number" id="humidity" name = "humidity" step="any" required placeholder = "0.0"><br>
+            <label for="ph">Ph:</label>
+            <input type="number" id="ph" name = "ph" step="any" required
+            placeholder = "0.0"><br>
+            <label for="soil_moisture">Soil Moisture:</label>
+            <input type="number" id="soil_moisture" name = "soil_moisture" step="any"  required placeholder = "0.0"><br>
+            <label for="co2_concentration">CO2 Concentration:</label>
+            <input type="number" id="co2_concentration" name = "co2_concentration" step="any"  required placeholder = "0.0"><br>
+            <label for="Nutrient_Index">Nutrient Index:</label>
+            <input type="number" id="Nutrient_Index" name = "Nutrient_Index" step="any"  required placeholder = "0.0"><br>
+            <label for="soil_type">Soil Type:</label>
+            <select id="soil_type" name="soil_type">
+                <option value="" disabled selected>Select Soil Type</option>
+                <option value="Option 1">Clay</option>
+                <option value="Option 2">Loamy</option>
+                <option value="Option 3">Sandy</option>
+            </select>
+            <label for="growth_stage">Growth Stage:</label>
+            <select id="growth_stage" name="growth_stage">
+                <option value="" disabled selected>Select Growth Stage</option>
+                <option value="Option 1">Flowering</option>
+                <option value="Option 2">Seedling</option>
+                <option value="Option 3">Vegetative</option>
+            </select>
+            <label for="crop_type">Crop Type:</label>
+            <select id="crop_type" name="crop_type">
+                <option value="" disabled selected>Crop Type</option>
+                <option value="Option 1">apple</option>
+                <option value="Option 2">banana</option>
+                <option value="Option 3">blackgram</option>
+                <option value="Option 5">coconut</option>
+                <option value="Option 6">coffee</option>
+                <option value="Option 7">cotton</option>
+                <option value="Option 8">grapes</option>
+                <option value="Option 9">jute</option>
+                <option value="Option 10">kidneybeans</option>
+                <option value="Option 11">lentil</option>
+                <option value="Option 12">maize</option>
+                <option value="Option 13">mango</option>
+                <option value="Option 14">mothbeans</option>
+                <option value="Option 15">mungbean</option>
+                <option value="Option 16">muskmelon</option>
+                <option value="Option 17">orange</option>
+                <option value="Option 18">papaya</option>
+                <option value="Option 19">pigeonpeas</option>
+                <option value="Option 20">pomegranate</option>
+                <option value="Option 21">rice</option>
+                <option value="Option 22">watermelon</option>
+
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        
+        <div id="result-overlay">
+            <div class="result-box">
+                <h2>Prediction Result</h2>
+                <p id="result-text"></p>
+                <button onclick="closeOverlay()">Close</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 IrrigateIQ</p>
+    </footer>
+
+    <script>
+        function validateForm() {
+            const fields = ['temperature', 'humidity', 'ph','Nutrient_Index','co2_concentration','soil_moisture'];  // Add all the field ids here
+            for (let field of fields) {
+                let input = document.getElementById(field).value;
+                if (isNaN(input) || input.trim() === "") {
+                    alert(`Please enter a valid float number for ${field}`);
+                    return false;  // Prevent form submission
+                }
+            }
+            return true;  // Allow form submission if all fields are valid
+        }
+        
+        
+        document.getElementById('infoForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const formData = new FormData(this);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result-text').innerText = `Result: ${data.prediction}`;
+                document.getElementById('result-overlay').style.display = 'flex'; 
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        function closeOverlay() {
+            document.getElementById('result-overlay').style.display = 'none'; 
+        }
+        </script>
+        
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Agbalumo' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Caveat Brush' rel='stylesheet'>
+    <title>Irrigation Frequency</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            
+            background-image: url('https://cdn-ilbiidp.nitrocdn.com/elBvgrCnKGiwHqUtmiJhrImPNvHOrBpD/assets/images/optimized/rev-a209e5c/stf.com.tr/wp-content/uploads/dripping-1.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            margin: 0;
+            color: #4b2e2a;
+        }
+        h1 {
+            font-size: 48px;
+            font-family:'Agbalumo';
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            font-weight: 400;
+            color: #fff;
+        }
+        h2 {
+            font-size: 36px;
+            letter-spacing: 3px;
+            font-family:'Agbalumo';
+            margin-bottom: 40px;
+            font-weight: 400;
+            color: #fff; 
+        }
+        p {
+            font-size: 22px;
+            font-family:'Caveat Brush';
+            color: #fff; 
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 50px;
+            font-size: 20px;
+            font-family:'Agbalumo';
+            color: #4b2e2a;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 2px solid #4b2e2a;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            gap: 10px;
+        }
+        .button img {
+            width: 25px; /* Adjust size of the logo */
+            height: 25px;
+        }
+        .button:hover {
+            background-color: #00A36C;
+            color: #fff;
+        }
+        .logo {
+            font-size: 20px;
+            font-family:'Agbalumo';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            transform: rotate(-15deg);
+            color: #fff;
+            font-weight: bold;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        footer {
+            /*background-color: rgba(0, 0, 0, 0.6);*/
+            color: #f9f3f1;
+            font-family:'Brush Script MT', cursive;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        /* Tooltip text */
+        .tooltip-container .tooltip-text {
+            visibility: hidden;
+            width: 300px;
+            background-color: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            text-align: center;
+            font-family:'Caveat Brush';
+            padding: 10px;
+            border-radius: 40px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; 
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Show the tooltip on hover */
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Arrow for the tooltip */
+        .tooltip-container .tooltip-text::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="logo">IrrigateIQ</div>
+        <div>
+            <h1>USING AI FOR A SMART</h1>
+            <h2>APPROACH TO IRRIGATION FREQUENCY</h2>
+        
+            <div class="tooltip-container">
+                <p>Choose your style</p>
+            
+                <div class="tooltip-text">
+                    <strong>Manual:</strong> You will manually input the data and the model will make a prediction.<br><br>
+                    <strong>Automatic:</strong> Integrate your Automatic Irrigation system and the model will make a prediction.
+                </div>
+            </div>
+            
+            <div class="button-container">
+                <a href="Manualpage" class="button">
+                    <img src="https://icons.veryicon.com/png/o/miscellaneous/mkt/manual-trigger.png" alt="Manual Logo"> MANUAL
+                </a>
+                <a href="AutomaticPage" class="button">
+                    <img src="https://marshallautomationamerica.com/wp-content/uploads/2017/02/icon-zero-defect-white.png" alt="Automatic Logo"> AUTOMATIC
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 IrrigateIQ</p>
+    </footer>
+</body>
+</html>

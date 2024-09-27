@@ -1,0 +1,13 @@
+Earthquake Hazard Management
+
+
+1.Create a survey for data collection
+
+2.Data Preprocessing
+
+3.Feature Engineering
+
+4.ML model
+
+5.Deployment 
+
