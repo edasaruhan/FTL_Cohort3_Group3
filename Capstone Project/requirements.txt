@@ -1,0 +1,8 @@
+
+Flask
+pandas
+numpy
+scikit-learn
+imbalanced-learn
+xgboost
+nltk
